@@ -22,12 +22,12 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.indigo[400],
+      backgroundColor: Color(0xffA5D4DC),
       appBar: AppBar(
-        backgroundColor: Colors.pink[200],
+        backgroundColor: Color(0xff415A80),
         title: Text('Sign in here'),
         actions: <Widget>[
-          ElevatedButton.icon(
+          FlatButton.icon(
             icon: Icon(Icons.person),
             label: Text('Register'),
             onPressed: () {
