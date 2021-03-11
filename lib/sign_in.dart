@@ -29,7 +29,7 @@ class _SignInState extends State<SignIn> {
         backgroundColor: Color(0xff415A80),
         title: Text('Sign in here'),
         actions: <Widget>[
-          FlatButton.icon(
+          TextButton.icon(
             icon: Icon(Icons.person),
             label: Text('Register'),
             onPressed: () {
@@ -69,14 +69,20 @@ class _SignInState extends State<SignIn> {
                 ),
                 onPressed: () async {
                   if (_formKey.currentState.validate()) {
-                    dynamic result = await _auth.registerWithEmailAndPassword(email, password);
+                    dynamic result = await _auth.signInWithEmailPass(
+                        email, password);
                     if (result == null) {
                       setState(() {
-                        error = 'please submit a valid email';
+                        error = 'Unable to sign in (Wrong Credentials!)';
                       });
                     }
                   }
                 }
+              ),
+              SizedBox(height: 12.0),
+              Text (
+                error,
+                style: TextStyle(color: Colors.red, fontSize: 14.0),
               )
             ],
           ),

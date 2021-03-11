@@ -29,7 +29,7 @@ class _RegisterState extends State<Register> {
         backgroundColor: Color(0xff415A80),
         title: Text('Sign up here'),
         actions: <Widget>[
-          FlatButton.icon(
+          TextButton.icon(
             icon: Icon(Icons.person),
             label: Text('SignIn'),
             onPressed: () {
