@@ -1,5 +1,6 @@
 import 'package:data/auth.dart';
 import 'package:data/constant.dart';
+import 'package:data/loading.dart';
 import 'package:flutter/material.dart';
 
 
@@ -16,6 +17,7 @@ class _SignInState extends State<SignIn> {
 
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
+  bool loading = false;
 
 //text field
   String email = '';
@@ -24,7 +26,7 @@ class _SignInState extends State<SignIn> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? Loading() : Scaffold(
       backgroundColor: Color(0xffA5D4DC),
       appBar: AppBar(
         backgroundColor: Color(0xff415A80),
@@ -75,11 +77,15 @@ class _SignInState extends State<SignIn> {
                 ),
                 onPressed: () async {
                   if (_formKey.currentState.validate()) {
+                    setState(() {
+                      loading = true;
+                    });
                     dynamic result = await _auth.signInWithEmailPass(
                         email, password);
                     if (result == null) {
                       setState(() {
                         error = 'Unable to sign in (Wrong Credentials!)';
+                        loading = false;
                       });
                     }
                   }

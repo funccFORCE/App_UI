@@ -1,5 +1,6 @@
 import 'package:data/auth.dart';
 import 'package:data/constant.dart';
+import 'package:data/loading.dart';
 import 'package:flutter/material.dart';
 
 
@@ -16,6 +17,7 @@ class _RegisterState extends State<Register> {
 
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
+  bool loading = false;
 
   //text field state change
   String email = '';
@@ -24,7 +26,7 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? Loading() :  Scaffold(
       backgroundColor: Color(0xffA5D4DC),
       appBar: AppBar(
         backgroundColor: Color(0xff415A80),
@@ -75,10 +77,14 @@ class _RegisterState extends State<Register> {
                     ),
                     onPressed: () async {
                      if (_formKey.currentState.validate()) {
+                       setState(() {
+                         loading = true;
+                       });
                        dynamic result = await _auth.registerWithEmailAndPassword(email, password);
                        if (result == null) {
                          setState(() {
                            error = 'please submit a valid email';
+                           loading = false;
                          });
                        }
                      }
