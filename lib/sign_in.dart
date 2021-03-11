@@ -1,4 +1,5 @@
 import 'package:data/auth.dart';
+import 'package:data/constant.dart';
 import 'package:flutter/material.dart';
 
 
@@ -44,8 +45,10 @@ class _SignInState extends State<SignIn> {
           key: _formKey,
           child: Column(
             children: <Widget>[
+
               SizedBox(height: 20.0),
               TextFormField(
+                  decoration: textInputDecoration.copyWith(hintText: 'Email'),
                   validator: (val) => val.isEmpty ? 'Enter an email' : null,
                 onChanged: (val) {
                   setState(() {
@@ -53,14 +56,17 @@ class _SignInState extends State<SignIn> {
                   });
                 }
                 ),
+
               SizedBox(height: 20.0),
               TextFormField(
+                  decoration: textInputDecoration.copyWith(hintText: 'Password'),
                   validator: (val) => val.length < 6 ? 'Password should have atleast 6 characters' : null,
                 obscureText: true,
                   onChanged: (val) {
                     password = val;
                   }
               ),
+
               SizedBox(height: 20.0),
               ElevatedButton(
                 child: Text(
@@ -79,6 +85,7 @@ class _SignInState extends State<SignIn> {
                   }
                 }
               ),
+
               SizedBox(height: 12.0),
               Text (
                 error,
