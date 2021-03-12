@@ -1,4 +1,5 @@
 import 'package:data/member.dart';
+import 'package:data/member_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,15 +12,13 @@ class _MemberListState extends State<MemberList> {
   @override
   Widget build(BuildContext context) {
 
-    final members = Provider.of<List<Member>>(context);
-    members.forEach((member) {
-      print(member.name);
-      print(member.course);
-      print(member.mobile);
-      print(member.college);
-      print(member.department);
-    });
+    final members = Provider.of<List<Member>>(context) ?? [];
 
-    return Container();
+    return ListView.builder(
+      itemCount: members.length,
+      itemBuilder: (context, index) {
+        return MemberTile(member: members[index]);
+      },
+    );
   }
 }

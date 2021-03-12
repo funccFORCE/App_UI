@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:data/auth.dart';
 import 'package:data/member.dart';
 import 'package:data/member_list.dart';
@@ -17,11 +16,11 @@ class Home extends StatelessWidget {
         child: Scaffold(
       backgroundColor: Color(0xffA5D4DC),
       appBar: AppBar(
-        title: Text('appbar'),
+        title: Text('Welcome to funccFORCE'),
         backgroundColor: Color(0xff415A80),
         actions: <Widget>[
 
-          ElevatedButton.icon(
+          TextButton.icon(
             icon: Icon(Icons.person),
             label: Text('logout'),
               onPressed: () async {
@@ -31,6 +30,9 @@ class Home extends StatelessWidget {
         ],
       ),
           body: MemberList(),
-    ));
+
+
+    )
+    );
   }
 }
