@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:data/member.dart';
+import 'package:data/user.dart';
 
 class DatabaseService {
 
@@ -31,11 +32,27 @@ class DatabaseService {
     }).toList();
   }
 
+  //userData from snapshot
+  UserData _userDataFromSnapshot(DocumentSnapshot snapshot) {
+    return UserData(
+      name: snapshot.data()['name'],
+      course: snapshot.data()['course'],
+      mobile: snapshot.data()['mobile'],
+      college: snapshot.data()['college'],
+      department: snapshot.data()['department'],
+    );
+  }
+
   //get members stream
   Stream<List<Member>> get members {
     return memberCollection.snapshots()
         .map(_memberListFromSnapshot);
 }
 
+  //get user documents stream from firebase
+  Stream<UserData> get userData {
+    return memberCollection.doc(uid).snapshots()
+        .map(_userDataFromSnapshot);
+  }
 
 }
