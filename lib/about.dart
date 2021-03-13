@@ -25,6 +25,7 @@ class About extends StatelessWidget {
 
         },
       ),
+      body: Container(),
     );
   }
 }
