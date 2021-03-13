@@ -14,6 +14,9 @@ class About extends StatelessWidget {
           TextButton.icon(
             icon: Icon(Icons.message, color: Color(0xffA5D4DC)),
             label: Text(''),
+            onPressed: () {
+
+            },
           ),
         ],
       ),
