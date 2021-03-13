@@ -26,8 +26,9 @@ class About extends StatelessWidget {
         },
       ),
       body: Container(
+        padding: EdgeInsets.all(10.0),
         child: Center(
-
+          
         ),
       ),
     );
