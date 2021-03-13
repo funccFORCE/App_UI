@@ -33,6 +33,7 @@ dependencies:
   provider:
   flutter_spinkit:
   font_awesome_flutter:
+  animated_splash_screen:
 
 dev_dependencies:
   flutter_test:
@@ -53,6 +54,7 @@ flutter:
   assets:
     - images/transparent_logo.png
     - images/logo.png
+    - images/back_img.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

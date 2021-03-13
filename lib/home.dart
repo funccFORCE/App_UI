@@ -28,17 +28,6 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffA5D4DC),
-      appBar: AppBar(
-        //title: Text('Welcome'),
-        backgroundColor: Color(0xff415A80),
-        actions: <Widget>[
-
-          TextButton.icon(
-            icon: Icon(Icons.message, color: Color(0xffA5D4DC)),
-            label: Text(''),
-          ),
-        ],
-      ),
       //body: MemberList(),
       body: _children[_currentIndex],
 
