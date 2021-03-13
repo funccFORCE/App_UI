@@ -51,7 +51,7 @@ class AuthService {
       User user = result.user;
 
       //creating new database for the user
-      await DatabaseService(uid: user.uid).updateUserData('Sakshi', 'B.Tech', 123456789, 'BV', 'ECE');
+      await DatabaseService(uid: user.uid).updateUserData('new force member', 'B.Tech', 123456789, 'BV', 'ECE');
 
       return _userFromFirebaseUser(user);
     } catch (e) {

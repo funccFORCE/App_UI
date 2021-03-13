@@ -35,6 +35,9 @@ class _SignInState extends State<SignIn> {
           TextButton.icon(
             icon: Icon(Icons.person),
             label: Text('Register'),
+            style: TextButton.styleFrom(
+              primary: Colors.white,
+            ),
             onPressed: () {
               widget.toggleView();
             },
@@ -71,8 +74,11 @@ class _SignInState extends State<SignIn> {
 
               SizedBox(height: 20.0),
               ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Color(0xff415A80),
+                  ),
                 child: Text(
-                  'sign-in',
+                  'SignIn',
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () async {

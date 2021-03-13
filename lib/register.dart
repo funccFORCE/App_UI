@@ -35,6 +35,9 @@ class _RegisterState extends State<Register> {
           TextButton.icon(
             icon: Icon(Icons.person),
             label: Text('SignIn'),
+            style: TextButton.styleFrom(
+              primary: Colors.white,
+            ),
             onPressed: () {
               widget.toggleView();
             },
@@ -71,6 +74,9 @@ class _RegisterState extends State<Register> {
 
                 SizedBox(height: 20.0),
                 ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Color(0xff415A80),
+                    ),
                     child: Text(
                       'Register',
                       style: TextStyle(color: Colors.white),
