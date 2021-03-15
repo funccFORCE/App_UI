@@ -9,11 +9,11 @@ class DatabaseService {
 
   final CollectionReference memberCollection = FirebaseFirestore.instance.collection('members');
 
-  Future updateUserData(String name, String course, int mobile, String college, String department) async {
+  Future updateUserData(String name, String course, String mob, String college, String department) async {
     return await memberCollection.doc(uid).set({
       'name': name,
       'course': course,
-      'mobile' : mobile,
+      'mob' : mob,
       'college': college,
       'department': department,
     });
@@ -25,7 +25,7 @@ class DatabaseService {
       return Member(
         name: docu.data()['name'] ?? '',
         course: docu.data()['course'] ?? '',
-        mobile: docu.data()['mobile'] ?? 0,
+        mob: docu.data()['mob'] ?? '',
         college: docu.data()['college'] ?? '',
         department: docu.data()['department'] ?? '',
       );
@@ -38,7 +38,7 @@ class DatabaseService {
       uid: uid,
       name: snapshot.data()['name'],
       course: snapshot.data()['course'],
-      mobile: snapshot.data()['mobile'],
+      mob: snapshot.data()['mob'],
       college: snapshot.data()['college'],
       department: snapshot.data()['department'],
     );

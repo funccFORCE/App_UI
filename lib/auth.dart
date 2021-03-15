@@ -19,7 +19,7 @@ class AuthService {
   }
 
   //anonymous
-  Future signInAnon() async {
+  /*Future signInAnon() async {
     try {
       UserCredential result = await _auth.signInAnonymously();
       User user = result.user;
@@ -28,7 +28,7 @@ class AuthService {
       print(e);
       return null;
     }
-  }
+  }*/
 
 
   //sign out
@@ -51,7 +51,7 @@ class AuthService {
       User user = result.user;
 
       //creating new database for the user
-      await DatabaseService(uid: user.uid).updateUserData('new force member', 'Degree', 123456789, 'College', 'Science');
+      await DatabaseService(uid: user.uid).updateUserData('new force member', 'B.tech', 'mob', 'College', 'Science');
 
       return _userFromFirebaseUser(user);
     } catch (e) {

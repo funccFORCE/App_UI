@@ -13,8 +13,7 @@ class UserSettings extends StatefulWidget {
 class _UserSettingsState extends State<UserSettings> {
 
   final _formkey = GlobalKey<FormState>();
-  static const List<String> _list = ['Technical', 'Content', 'Design', 'Marketing', 'Management'];
-  String _value = _list.first;
+  final List<String> departments = ['Technical', 'Content', 'Design', 'Marketing', 'Management'];
 
 
   String _currentName;
@@ -35,6 +34,7 @@ class _UserSettingsState extends State<UserSettings> {
       if(snapshot.hasData) {
 
         UserData userData = snapshot.data;
+
         return Form(
           key: _formkey,
           child: Column(
@@ -73,17 +73,17 @@ class _UserSettingsState extends State<UserSettings> {
               SizedBox(height: 20.0),
 
               DropdownButtonFormField(
-                value: _value ?? 'Choose',
-                icon: Icon(Icons.arrow_drop_down_outlined),
-                iconSize: 24,
-                elevation: 16,
-                onChanged: (val) => setState(() => _value = val),
-                items: [
-                  for (String i in _list) DropdownMenuItem(
-                    value: i,
-                    child: Text('$i Department'),
-                  )
-                ],
+
+                decoration: textInputDecoration.copyWith(hintText: 'Choose your department'),
+                items: departments.map((department) {
+                  return DropdownMenuItem(
+                    value: department,
+                    child: Text('$department department'),
+                  );
+                }).toList(),
+                onChanged: (val) => setState(() => _currentDepartment = val),
+
+
               ),
               SizedBox(height: 20),
 
@@ -98,7 +98,7 @@ class _UserSettingsState extends State<UserSettings> {
                     await DatabaseService(uid: user.uid).updateUserData(
                         _currentName ?? userData.name,
                         _currentCourse ?? userData.course,
-                        _currentMobile ?? userData.mobile,
+                        _currentMobile ?? userData.mob,
                         _currentCollege ?? userData.college,
                         _currentDepartment ?? userData.department,
                     );

@@ -17,10 +17,69 @@ class SettingsPage extends StatelessWidget {
           ),
         ],
       ),
-    drawer: MyDrawer(
-    onTap: () {
+      drawer: MyDrawer(
+      onTap: () {
+      },
+      ),
+      body: Container(
+              padding: EdgeInsets.all(30.0),
+          child: Center(
+            child: Column(
+              children: <Widget>[
 
-    },
-    ));
+               SizedBox(height: 20.0),
+
+                Text(
+                  'Our website',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black,
+                  ),
+                ),
+
+                SizedBox(height: 20.0),
+
+                Text(
+                  'www.funccforce.com',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 17.0,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black,
+                  ),
+                ),
+
+                SizedBox(height: 40.0),
+
+                Text(
+                  'Mail us at',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black,
+                  ),
+                ),
+
+                SizedBox(height: 20.0),
+
+                Text(
+                  'contact@funccforce.com',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 17.0,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black,
+                  ),
+                ),
+
+            ],
+            ),
+            ),
+            ),
+
+             );
   }
 }

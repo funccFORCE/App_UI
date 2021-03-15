@@ -36,7 +36,7 @@ class Profile extends StatelessWidget {
               TextButton.icon(
                 icon: Icon(Icons.add, color: Color(0xffA5D4DC)),
                 label: Text(''),
-                onPressed: ()=> _showSettingsPanel(),
+                onPressed: () => _showSettingsPanel(),
               ),
             ],
           ),

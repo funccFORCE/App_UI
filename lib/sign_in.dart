@@ -49,62 +49,64 @@ class _SignInState extends State<SignIn> {
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
         child: Form(
           key: _formKey,
-          child: Column(
-            children: <Widget>[
+          child: Center(
+            child: Column(
+              children: <Widget>[
 
-              SizedBox(height: 20.0),
-              TextFormField(
-                  decoration: textInputDecoration.copyWith(hintText: 'Email'),
-                  validator: (val) => val.isEmpty ? 'Enter an email' : null,
-                onChanged: (val) {
-                  setState(() {
-                    email = val;
-                  });
-                }
-                ),
-
-              SizedBox(height: 20.0),
-              TextFormField(
-                  decoration: textInputDecoration.copyWith(hintText: 'Password'),
-                  validator: (val) => val.length < 6 ? 'Password should have atleast 6 characters' : null,
-                obscureText: true,
+                SizedBox(height: 20.0),
+                TextFormField(
+                    decoration: textInputDecoration.copyWith(hintText: 'Email'),
+                    validator: (val) => val.isEmpty ? 'Enter an email' : null,
                   onChanged: (val) {
-                    password = val;
-                  }
-              ),
-
-              SizedBox(height: 20.0),
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Color(0xff415A80),
-                  ),
-                child: Text(
-                  'SignIn',
-                  style: TextStyle(color: Colors.white),
-                ),
-                onPressed: () async {
-                  if (_formKey.currentState.validate()) {
                     setState(() {
-                      loading = true;
+                      email = val;
                     });
-                    dynamic result = await _auth.signInWithEmailPass(
-                        email, password);
-                    if (result == null) {
+                  }
+                  ),
+
+                SizedBox(height: 20.0),
+                TextFormField(
+                    decoration: textInputDecoration.copyWith(hintText: 'Password'),
+                    validator: (val) => val.length < 6 ? 'Password should have atleast 6 characters' : null,
+                  obscureText: true,
+                    onChanged: (val) {
+                      password = val;
+                    }
+                ),
+
+                SizedBox(height: 20.0),
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Color(0xff415A80),
+                    ),
+                  child: Text(
+                    'SignIn',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () async {
+                    if (_formKey.currentState.validate()) {
                       setState(() {
-                        error = 'Unable to sign in (Wrong Credentials!)';
-                        loading = false;
+                        loading = true;
                       });
+                      dynamic result = await _auth.signInWithEmailPass(
+                          email, password);
+                      if (result == null) {
+                        setState(() {
+                          error = 'Unable to sign in (Wrong Credentials!)';
+                          loading = false;
+                        });
+                      }
                     }
                   }
-                }
-              ),
+                ),
 
-              SizedBox(height: 12.0),
-              Text (
-                error,
-                style: TextStyle(color: Colors.red, fontSize: 14.0),
-              )
-            ],
+                SizedBox(height: 12.0),
+                Text (
+                  error,
+                  style: TextStyle(color: Colors.red, fontSize: 14.0),
+                )
+              ],
+            ),
           ),
         )
       ),

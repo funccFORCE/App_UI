@@ -24,7 +24,7 @@ class MemberTile extends StatelessWidget {
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold
           )),
-          subtitle: Text('Works in ${member.department}',
+          subtitle: Text('Works in ${member.department} Department',
               style: TextStyle(
                 fontSize: 15.0,
                 fontWeight: FontWeight.w700,
