@@ -35,6 +35,7 @@ class DatabaseService {
   //userData from snapshot
   UserData _userDataFromSnapshot(DocumentSnapshot snapshot) {
     return UserData(
+      uid: uid,
       name: snapshot.data()['name'],
       course: snapshot.data()['course'],
       mobile: snapshot.data()['mobile'],
