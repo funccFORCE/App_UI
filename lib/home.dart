@@ -59,7 +59,7 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(
             label: '',
             icon: Icon(
-              Icons.settings,
+              Icons.call,
               color: Color(0xffA5D4DC),
             ),
           ),

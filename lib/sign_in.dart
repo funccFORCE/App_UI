@@ -29,23 +29,15 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return loading ? Loading() : Scaffold(
       backgroundColor: Color(0xffA5D4DC),
-      appBar: AppBar(
+      /*appBar: AppBar(
         backgroundColor: Color(0xff415A80),
         title: Text('Sign in here'),
         actions: <Widget>[
-          TextButton.icon(
-            icon: Icon(Icons.person),
-            label: Text('Register'),
-            style: TextButton.styleFrom(
-              primary: Colors.white,
-            ),
-            onPressed: () {
-              widget.toggleView();
-            },
-          )
+
         ],
-      ),
-      body: Container(
+      ),*/
+      body: SingleChildScrollView(
+      child: Container(
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
         child: Form(
           key: _formKey,
@@ -53,7 +45,18 @@ class _SignInState extends State<SignIn> {
             child: Column(
               children: <Widget>[
 
-                SizedBox(height: 20.0),
+                SizedBox(height: 100.0),
+
+                Container(
+                  child: Image.asset(
+                    'images/logo.png',
+                    height: 100.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+
+                SizedBox(height: 60.0),
+
                 TextFormField(
                     decoration: textInputDecoration.copyWith(hintText: 'Email'),
                     validator: (val) => val.isEmpty ? 'Enter an email' : null,
@@ -99,16 +102,41 @@ class _SignInState extends State<SignIn> {
                     }
                   }
                 ),
+                SizedBox(height: 40.0),
 
-                SizedBox(height: 12.0),
                 Text (
                   error,
                   style: TextStyle(color: Colors.red, fontSize: 14.0),
+                ),
+                SizedBox(height: 12.0),
+
+                Text(
+                  'Don\'t have an account?',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                SizedBox(height: 0.0),
+
+                TextButton(
+                  //icon: Icon(Icons.person),
+                  child: Text('Register here', style: TextStyle(
+                    fontSize: 18.0,
+                  ),),
+                  style: TextButton.styleFrom(
+                    primary: Color(0xff415A80),
+                  ),
+                  onPressed: () {
+                    widget.toggleView();
+                  },
                 )
+
               ],
             ),
           ),
         )
+      ),
       ),
     );
   }

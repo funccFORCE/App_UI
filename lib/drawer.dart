@@ -1,8 +1,8 @@
 import 'package:data/auth.dart';
-import 'package:data/loading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyDrawer extends StatelessWidget {
 
@@ -64,45 +64,46 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               title: Text('Terms & Conditions'),
-
-              onTap: () {
-
-              },
             ),
             ListTile(
               title: Text('Privacy Policy'),
-              onTap: () {
-
-              },
             ),
             Divider(height: 2, color: Color(0xff415A80),),
             ListTile(
               leading: FaIcon(FontAwesomeIcons.linkedin),
               title: Text('LinkedIn'),
-              onTap: () {
-
-              },
+              onTap: () async {
+                if (await canLaunch("https://www.linkedin.com/company/funccforce3/")) {
+                await launch("https://www.linkedin.com/company/funccforce3/");
+                }
+                },
             ),
             ListTile(
               leading: FaIcon(FontAwesomeIcons.twitter),
               title: Text('Twitter'),
-              onTap: () {
-
-              },
+              onTap: () async {
+                if (await canLaunch("https://twitter.com/ForceFuncc")) {
+                await launch("https://twitter.com/ForceFuncc");
+                }
+                },
             ),
             ListTile(
               leading: FaIcon(FontAwesomeIcons.instagram),
               title: Text('Instagram'),
-              onTap: () {
-
+              onTap: () async {
+                if (await canLaunch("https://www.instagram.com/funccforce/?hl=en")) {
+                await launch("https://www.instagram.com/funccforce/?hl=en");
+                }
               },
             ),
             ListTile(
               leading: FaIcon(FontAwesomeIcons.facebook),
               title: Text('Facebook'),
-              onTap: () {
-
-              },
+              onTap: () async {
+                if (await canLaunch("https://www.facebook.com/Funccforce-106941474562767")) {
+                await launch("https://www.facebook.com/Funccforce-106941474562767");
+                }
+                },
             ),
             Divider(height: 2, color: Color(0xff415A80),),
             Column(
