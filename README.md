@@ -1,6 +1,6 @@
 # User_Database
 
-A new Flutter application.
+A new Flutter application for funccFORCE
 
 ## Getting Started
 
